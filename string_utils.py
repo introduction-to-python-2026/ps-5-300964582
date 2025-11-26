@@ -1,6 +1,12 @@
 def split_before_uppercases(formula):
-   ״פיצול לםני אות גדולה״
-  
+    """
+    פיצול לפני כל אות גדולה, כשהאות הגדולה נשארת בתחילת המקטע.
+    דוגמאות:
+      "NaCl"     -> ["Na", "Cl"]
+      "C6H12O6B" -> ["C6", "H12", "O6", "B"]
+      "water"    -> ["water"]
+      ""         -> []
+    """
     if formula == "":
         return []
 
@@ -20,7 +26,17 @@ def split_before_uppercases(formula):
     return parts
 
 def split_at_digit(formula):
-״פיצול כשפוגשים מספר ראשון״
+    """
+    פיצול במפגש הספרה הראשונה:
+    מחזיר (prefix, count) כאשר:
+      - prefix: החלק לפני הספרה הראשונה (יכול להיות גם "" אם מתחיל בספרה)
+      - count: כל רצף הספרות מהספרה הראשונה ועד הסוף כ-int
+    אם אין ספרות כלל — מחזיר (formula, 1)
+    דוגמאות:
+      "H22"   -> ("H", 22)
+      "NaCl"  -> ("NaCl", 1)
+      "123"   -> ("", 123)
+    """
     for i, ch in enumerate(formula):
         if ch.isdigit():
             return formula[:i], int(formula[i:])
