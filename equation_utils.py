@@ -1,4 +1,6 @@
 # Add the import statements for necessary sympy functions here
+from sympy import Eq, symbols
+from sympy import solve as sympy_solve
 
 
 ELEMENTS = [
@@ -55,8 +57,3 @@ def my_solve(equations, coefficients):
         for coefficient in coefficients:
             coefficient_values.append(float(solution[coefficient]))
         return coefficient_values
-
-
-
-
-
